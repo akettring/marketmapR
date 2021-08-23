@@ -55,7 +55,7 @@ ha <- rowAnnotation(foo =
             labels_gp = gpar(fontsize=6)
 ))
 
-png("demo/hmap_rsi.png", width = 11, height = 8.5, units = "in", res=600)
+png("../demo/hmap_rsi.png", width = 11, height = 8.5, units = "in", res=600)
 df %>% as.data.frame() %>% t() %>%
     Heatmap(.,
     row_split = row_split,
