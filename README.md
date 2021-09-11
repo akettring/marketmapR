@@ -8,6 +8,11 @@ This package uses tidyquant to fetch data and ComplexHeatmap to make a clusterma
 Any transformation desired can be applied to the data, from tidyquant or otherwise.
 Along the way, timeseries are converted to xts format and NA values are conveniently handled.
  
+To get the current development version from github:
+```
+# install.packages("devtools")
+devtools::install_github("akettring/marketmapR")
+```
 
 ## 1. Get the data
 This project is geared toward categorizing sp500 stocks comprehensively.
@@ -49,3 +54,9 @@ market_map(df_plot,
            detrend = TRUE           # removing baseline market shifts can sometimes make trends more clear
 )
 ```
+
+Copyright (C) 2021 Andrew Kettring
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details
