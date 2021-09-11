@@ -6,9 +6,6 @@ library("ComplexHeatmap")
 library("circlize")
 
 
-###########################
-# FUNCTIONS
-###########################
 
 
 # choose row labels based on recent average
@@ -131,44 +128,4 @@ market_map <- function(df=NULL,             # dataframe that contains the variab
         )
 
 }
-
-
-###########################
-# USER DEFINED INPUTS
-###########################
-
-# # 1a. get the data
-# symbol_list <- tq_index("SP500")$symbol %>% sample(50) # sp500 equities
-# df <- tq_get(symbol_list, from = "2020-12-01")              # date range
-# write.table(df, file = "demo/sp500.tsv", row.names=FALSE, sep="\t")
-
-# 1b. load the data
-df <- read.delim("demo/sp500.tsv", header=TRUE, sep="\t") %>% as_tibble()
-df$date <- df$date %>% as.Date()
-
-
-# 2. add the indicator to dataframe
-df_plot <- df %>%
-    na.omit(target.colnames="close") %>%                    # filter missing values
-    group_by(symbol) %>%                                    # sort by symbol
-    tq_mutate(                                              # technical indicator
-        select = c(high, low, close),                                     # value to transform
-        mutate_fun = stoch)
-
-
-# 3. make the plot
-png("demo/sp500.png",
-    width = 11, height = 8.5, units = "in", res=600)
-
-
-market_map(df_plot,
-           valvar = "stoch",          # if valvar isnt defined, the last column in the df is used
-           n_labels = 25,           # how many labels?
-           n_top = 5,               # length of tail to consider for sorting labels
-           label_at = "both",       # label both the top and bottom performing stocks
-           group_idx = "sp500",     # for mapping non-sp500 equities, use "combo" (<50 stocks) or NULL (>50 stocks)
-           detrend = TRUE           # removing baseline market shifts can sometimes make trends more clear
-)
-
-dev.off()
 
