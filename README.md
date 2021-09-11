@@ -47,7 +47,7 @@ The `market_map` function needs columns: date, symbol, and the indicated `valvar
 ```
 market_map(df_plot,
            valvar = "rsi",          # if valvar isnt defined, the last column in the df is used
-           n_labels = 50,           # how many labels?
+           n_labels = 25,           # how many labels?
            n_top = 5,               # length of tail to consider for sorting labels
            label_at = "both",       # label both the top and bottom performing stocks
            group_idx = "sp500",     # for mapping non-sp500 equities, use "combo" (<50 stocks) or NULL (>50 stocks)
