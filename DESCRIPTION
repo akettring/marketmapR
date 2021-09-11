@@ -1,9 +1,12 @@
 Package: marketmapR
 Type: Package
-Title: What the package does (short line)
+Title: Heatmaps for timeseries of market equities
 Version: 1.0
 Date: 2021-08-23
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Andrew Kettring
+Maintainer: akettring@gmail.com
+Description: Heatmaps are a powerful but underappreciated way to visualize timeseries.
+This package uses tidyquant to fetch data and ComplexHeatmap to make a clustermap.
+Any transformation desired can be applied to the data, from tidyquant or otherwise.
+Along the way, timeseries are converted to xts object and NA values are conveniently handled.
+License: GNU GENERAL PUBLIC LICENSE Version 3
